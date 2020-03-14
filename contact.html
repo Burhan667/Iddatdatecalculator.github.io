@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iddat Software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body
+{
+    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif,serif,fantasy;
+    text-align: center;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+}
+.col-1 {width: 8.33%}
+.col-2 {width: 16.66%}
+.col-3 {width: 25%}
+.col-4 {width: 33.33%}
+.col-5 {width: 41.66%}
+.col-6 {width: 50%}
+.col-7 {width: 58.33%}
+.col-8 {width: 66.66%}
+.col-9 {width: 75%}
+.col-10 {width: 83.33%}
+.col-11 {width: 91.66%}
+.col-12 {width: 100%}
+
+[class*="col-"]
+{
+    display: inline-block;
+}
+{
+    display: inline-block;
+}
+#container
+{
+    
+    margin: auto auto;
+    
+}
+#form
+{
+    background-color: wheat;
+    padding: 20px;
+    font-size: 25px;
+    line-height: 2;
+    border-radius: 19px;
+    color: darkcyan;
+}
+#month
+{
+    font-size: 22px;
+    border-radius: 19px;
+    padding: 5px;
+    outline: none;
+}
+#date
+{
+    font-size: 22px;
+    border-radius: 19px;
+    padding: 5px;
+    width: 57%;
+    outline: none;
+}
+button
+{
+    text-align: center;
+    background-color: aliceblue;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+button:active
+{
+    outline: none;
+    border: none;
+}
+h1,h2
+{
+    padding: 20px;
+    color: darkblue;
+}
+h2{
+text-align: center;
+background-color: wheat;
+font-size: 20px;
+border-radius: 10px;
+padding: 5px;
+outline: none;
+}
+.about
+{
+    color: darkblue;
+    text-decoration: none;
+    text-align: center;
+    background-color: wheat;
+    font-size: 17px;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+.link
+{
+    text-decoration: none;
+    color: darkcyan;
+}
+#dateend,#monthend
+{
+    background: white;
+    border-radius: 19px;
+}
+/*Media Query*/
+
+@media only screen and (max-width:786px)
+{
+   
+    [class*="col-"]
+{
+    width: 98%;
+}
+    #form
+    {
+        padding: 0;
+    }
+    #date
+    {
+        width: 94%;
+    }
+    h1,h2
+    {
+        padding: 0;
+    }
+}
+@media only screen and (max-width:340px)
+{
+    p{
+        font-size: 7.7vw;
+    }
+    h1
+    {
+        font-size: 9.5vw;
+    }
+}
+    </style>
+</head>
+<body>
+  <div class="col-7" id="container">
+       <h1 class="col-12">Iddat Date Calculator</h1>
+            <div class="col-12" id="form">
+               
+               <p>Burhanuddin Bohra <br>
+                      Burhanbohra3@gmail.com <br>
+                      +918952996353
+               </p>
+            
+            </div>
+    <footer>
+       <h2><a class="about" href="index.html">Home</a></h2>
+       <span>&copy; Copyright 2019 Reserved</span>
+    </footer>
+  </div>
+</body>
+</html>

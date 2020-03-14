@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iddat Software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body
+{
+    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif,serif,fantasy;
+    text-align: center;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+}
+.col-1 {width: 8.33%}
+.col-2 {width: 16.66%}
+.col-3 {width: 25%}
+.col-4 {width: 33.33%}
+.col-5 {width: 41.66%}
+.col-6 {width: 50%}
+.col-7 {width: 58.33%}
+.col-8 {width: 66.66%}
+.col-9 {width: 75%}
+.col-10 {width: 83.33%}
+.col-11 {width: 91.66%}
+.col-12 {width: 100%}
+
+[class*="col-"]
+{
+    display: inline-block;
+}
+{
+    display: inline-block;
+}
+#container
+{
+    
+    margin: auto auto;
+    
+}
+#form
+{
+    background-color: wheat;
+    padding: 20px;
+    font-size: 25px;
+    line-height: 2;
+    border-radius: 19px;
+    color: darkcyan;
+}
+#month
+{
+    font-size: 22px;
+    border-radius: 19px;
+    padding: 5px;
+    outline: none;
+}
+#date
+{
+    font-size: 22px;
+    border-radius: 19px;
+    padding: 5px;
+    width: 57%;
+    outline: none;
+}
+button
+{
+    text-align: center;
+    background-color: aliceblue;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+button:active
+{
+    outline: none;
+    border: none;
+}
+h1,h2
+{
+    padding: 20px;
+    color: darkblue;
+}
+h2{
+text-align: center;
+background-color: wheat;
+font-size: 20px;
+border-radius: 10px;
+padding: 5px;
+outline: none;
+}
+.about
+{
+    color: darkblue;
+    text-decoration: none;
+    text-align: center;
+    background-color: wheat;
+    font-size: 17px;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+#dateend,#monthend
+{
+    background: white;
+    border-radius: 19px;
+}
+/*Media Query*/
+
+@media only screen and (max-width:786px)
+{
+   
+    [class*="col-"]
+{
+    width: 98%;
+}
+    #form
+    {
+        padding: 0;
+    }
+    #date
+    {
+        width: 94%;
+    }
+    h1,h2
+    {
+        padding: 0;
+    }
+}
+        @media only screen and (max-width:340px)
+{
+    h1
+    {
+        font-size: 9vw;
+    }
+}
+    </style>
+</head>
+<body>
+  <div class="col-7" id="container">
+       <h1 class="col-12">Iddat Date Calculator</h1>
+            <div class="col-12" id="form">
+                <span class="col-4">Enter Month</span>
+            <select class="col-7" name="" id="month">
+                <option id='month1' value="1">Mohararam al-Haraam</option>
+                <option id='month2' value="2">Zilhaj al-Haraam</option>
+                <option id='month3' value="3">Zilqadah al-Haraam Avval</option>
+                <option id='month4' value="4">Safar al-Muzaffar</option>
+                <option id='month5' value="5">Rabi al-Awwal</option>
+                <option id='month6' value="6">Shawwal al-Mukarram</option>
+                <option id='month7' value="7">Rabi al-Aakhar</option>
+                <option id='month8' value="8">Ramadaan al-Moazzam</option>
+                <option id='month9' value="9">Shabaan al-Karim</option>
+                <option id='month10' value="10">Jumada al-Ula</option>
+                <option id='month11' value="11">Jumada al-Ukhra</option>
+                <option id='month12' value="12">Rajab al-Asab</option>
+            </select>
+            
+            
+            
+               <span class="col-4">Enter Date</span>
+               <input class="input col-7" id="date" type="tel" placeholder="Enter Date" maxlength="2"> 
+            
+            
+                <button class="button1 col-3" onclick="iddat()">Check</button>
+                <button class="button2 col-3" onclick="reset_button()">Reset</button>
+            
+            <br>
+            <br>
+            
+                <span class="col-4">Month:</span> 
+                <p class="error col-7" id="monthend"></p>
+            
+            
+                <span class="col-4">Date:</span> 
+                <p class="error col-7" id="dateend"></p>
+        </div>
+    <footer>
+       <h2><a class="about" href="contact.html">Contact Us</a></h2>
+       <span>&copy; Copyright 2019 Reserved</span>
+    </footer>
+  </div>
+    <script>
+        function iddat()
+        {
+            
+        let month = Number(document.getElementById('month').value)
+        let date = Number(document.getElementById('date').value)
+        let c = null
+        let d = null
+        
+            if(date>=1 && date<=30)
+                {
+                    
+                    if(month>=1 && month<=8 && date<=18){
+                        
+                        c = month + 4;
+                        d = document.getElementById(`month${c}`).innerHTML
+                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                        document.getElementById('dateend').innerHTML = date + 11
+                        
+                    }
+                    
+                    else if(month>=9 && month<=12 && date<=18){
+                        c = (month + 4)- 12;
+                        d = document.getElementById(`month${c}`).innerHTML
+                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                        document.getElementById('dateend').innerHTML = date + 11
+                    }
+                      else if(month>=1 && month<=12 && date==19){
+                        let i
+                        for(i=1;i<12;i=i+2)
+                            {
+                        
+                                if(month==i && month<=7)
+                                    {
+                                        c = month + 4;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = date + 11
+                                        return;
+                                    }
+                                else if(month==i && month==9 || month==11)
+                                    {
+                                        c = (month + 4)-12;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = date + 11 
+                                        return;
+                                    }
+                            }
+                        for(i=2;i<13;i=i+2)
+                            {
+                
+                                if(month==i && month<=8 && date<=29)
+                                    {
+                                        c = month + 5;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = date / 19
+                                        return;
+                                    }
+                                else if(month==i && month==10 || month==12)
+                                    {
+                                        if(date<=29)
+                                            {
+                                                c = (month + 4)-11;
+                                                d = document.getElementById(`month${c}`).innerHTML
+                                                document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                                document.getElementById('dateend').innerHTML = date / 19
+                                                return;
+                                            }
+                                        else
+                                            {
+                                                document.getElementById('monthend').innerHTML = '';
+                                                document.getElementById('dateend').innerHTML = '<span style="color:red">This Month have no - 30</span>'
+                                                return;
+                                            }
+                                    }
+                                else if(date>=30)
+                                    {
+                                                document.getElementById('monthend').innerHTML = '';
+                                                document.getElementById('dateend').innerHTML = '<span style="color:red">This Month have no - 30</span>'
+                                        return;
+                                    }
+
+                            }
+                    }
+                    else if(month>=1 && month<=12 && date==20){
+                        let i
+                        for(i=1;i<12;i=i+2)
+                            {
+                        
+                                if(month==i && month<=7)
+                                    {
+                                        c = month + 5;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = date / 20
+                                        return;
+                                    }
+                                else if(month==i && month==9 || month==11)
+                                    {
+                                        c = (month + 5)-12;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = date / 20 
+                                        return;
+                                    }
+                            }
+                        for(i=2;i<13;i=i+2)
+                            {
+                
+                                if(month==i && month<=8 && date<=29)
+                                    {
+                                        c = month + 5;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = (date / 20)*2
+                                        return;
+                                    }
+                                else if(month==i && month==10 || month==12)
+                                    {
+                                        if(date<=29)
+                                            {
+                                                c = (month + 4)-11;
+                                                d = document.getElementById(`month${c}`).innerHTML
+                                                document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                                document.getElementById('dateend').innerHTML = (date / 20)*2
+                                                return;
+                                            }
+                                        else
+                                            {
+                                                document.getElementById('monthend').innerHTML = '';
+                                                document.getElementById('dateend').innerHTML = '<span style="color:red">This Month have no - 30</span>'
+                                                return;
+                                            }
+                                    }
+                                else if(date>=30)
+                                    {
+                                                document.getElementById('monthend').innerHTML = '';
+                                                document.getElementById('dateend').innerHTML = '<span style="color:red">This Month have no - 30</span>'
+                                        return;
+                                    }
+
+                            }
+                    }
+                    else if(month>=1 && month<=12 && date>=21 && date<=30){
+                        let i
+                        for(i=1;i<12;i=i+2)
+                            {
+                        
+                                if(month==i && month<=7)
+                                    {
+                                        c = month + 5;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = (date - 20)+1
+                                        return;
+                                    }
+                                else if(month==i && month==9 || month==11)
+                                    {
+                                        c = (month + 5)-12;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = (date - 20)+1 
+                                        return;
+                                    }
+                            }
+                        for(i=2;i<13;i=i+2)
+                            {
+                
+                                if(month==i && month<=6 && date<=29)
+                                    {
+                                        c = month + 5;
+                                        d = document.getElementById(`month${c}`).innerHTML
+                                        document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                        document.getElementById('dateend').innerHTML = (date - 20) + 2
+                                        return;
+                                    }
+                                else if(month==i && date<=29 && month==8 || month==10 || month==12)
+                                    {
+                                        if(date<=29)
+                                            {
+                                                c = (month + 5)-12;
+                                                d = document.getElementById(`month${c}`).innerHTML
+                                                document.getElementById('monthend').innerHTML = `${c} (${d})`
+                                                document.getElementById('dateend').innerHTML = (date - 20) + 2
+                                                return;
+                                                
+                                            }
+                                         else
+                                            {
+                                                document.getElementById('monthend').innerHTML = '';
+                                                document.getElementById('dateend').innerHTML = '<span style="color:red">This Month have no - 30</span>'
+                                                return;
+                                                
+                                            }
+                                    }
+                                else if(date>=30)
+                                    {
+                                                document.getElementById('monthend').innerHTML = '';
+                                                document.getElementById('dateend').innerHTML = '<span style="color:red">This Month have no - 30</span>'
+                                        return;
+                                    }
+                            }
+                    }
+                    
+                }
+            else
+                {
+                                document.getElementById('monthend').innerHTML = '';
+                                document.getElementById('dateend').innerHTML = '<span style="color:red">Please Enter a valid Date</span>'
+                }
+            
+        }
+function reset_button()
+              {
+                  document.getElementById('monthend').innerHTML = '';
+                  document.getElementById('dateend').innerHTML = '';
+              }
+    </script>
+</body>
+</html>
